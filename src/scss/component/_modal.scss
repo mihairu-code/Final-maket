@@ -1,0 +1,91 @@
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    visibility: hidden;
+    overflow: auto;
+    scrollbar-width: none;
+    &--show {
+        overflow: hidden;
+        max-height: 100dvh;
+    }
+    &--open{
+        visibility: visible;
+        .modal__bg{
+            visibility: visible;
+            opacity: 0.96;
+        }
+        .modal__container{
+            transform: none;
+        }
+    }
+    &__bg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        visibility: hidden;
+        opacity: 0;
+        background-color: $white;
+        transition: $trans;
+    }
+    &__container{
+        position: relative;
+        margin-left: auto;
+        width: 100%;
+        max-width: 440px;
+        height: 100dvh;
+        background-color: #fff;
+        transition: $trans;
+        transform: translateX(120%);
+        @media screen and (min-width: 768px) {
+            box-shadow: 1rem 0px 3.25rem 0px rgba(14, 24, 80, 0.20), -2px 0px 4px 0px rgba(69, 79, 126, 0.02);
+        }
+    }
+    &__control{
+        padding: 1.5rem 1rem 0;
+        @media screen and (min-width: 768px) {
+            position: relative;
+            padding: 0;
+        }
+    }
+    &__content{
+        padding: 0 1rem 1rem;
+    }
+    &__header{
+        padding-top: 2.1rem;
+        padding-bottom: 1.5rem;
+    }
+    &__close{
+        width: 40px;
+        height: 40px;
+        @media screen and (min-width: 768px) {
+            position: absolute;
+            top: 30px;
+            left: -70px;
+        }
+    }
+    &__title{
+        position: relative;
+        padding: 0 1rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        letter-spacing: -0.03em;
+        &::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            width: 0.25rem;
+            height: 2.5rem;
+            background-color: $cian;
+            border-radius: 0 0.25rem 0.25rem 0;
+        }
+    }
+}
